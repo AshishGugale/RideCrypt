@@ -36,13 +36,17 @@ contract RideProposal {
         emit ProposalCreated(proposalCount, msg.sender, _driver, _fare);
     }
 
+    function getContractBalance() public view onlyOwner returns (uint256) {
+        return address(this).balance;
+    }
+
     function fulfillProposal(uint256 _proposalId) external onlyOwner {
         require(_proposalId > 0 && _proposalId <= proposalCount, "Invalid proposal ID");
         require(!proposals[_proposalId].isFulfilled, "Proposal is already fulfilled");
-
+        require(getContractBalance() > proposals[_proposalId].fare, "Not enough balance!!");
         // Transfer fare from contract to the driver
         require(
-            payable(proposals[_proposalId].driver).send(proposals[_proposalId].fare.mul(1e15)),
+            payable(proposals[_proposalId].driver).send(proposals[_proposalId].fare),
             "Failed to transfer fare to the driver"
         );
 
@@ -54,10 +58,5 @@ contract RideProposal {
             proposals[_proposalId].driver,
             proposals[_proposalId].fare
         );
-    }
-
-    // Function to get the contract balance
-    function getContractBalance() external view onlyOwner returns (uint256) {
-        return address(this).balance;
     }
 }

@@ -31,14 +31,8 @@ contract RideProposal {
     }
 
     function createProposal(address _driver, uint256 _fare) external payable {
-        // Convert the fare to Wei
-        uint256 fareInWei = _fare.mul(1e14); // Accuracy = 10^4 
-
-        require(msg.value == fareInWei, "Sent amount must be equal to the fare");
-
         proposalCount++;
         proposals[proposalCount] = Proposal(msg.sender, _driver, _fare, false);
-
         emit ProposalCreated(proposalCount, msg.sender, _driver, _fare);
     }
 

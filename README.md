@@ -8,7 +8,8 @@ This repository contains a decentralized ride sharing system that employs geofen
 
 ## Working:
 
-![Workflow Diagram](https://imgur.com/nkzkQcR)
+![Geofencing](https://github.com/AshishGugale/RideCrypt/assets/96615701/46ec0ff7-8487-4af2-b2af-6709c7fcf842)
+
 
 ## Tech Stack:
 

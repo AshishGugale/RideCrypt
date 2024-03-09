@@ -17,7 +17,6 @@ async function createProposal(driverAddress, fare) {
         const fareAmountInWeiGP = parseUnits(fare_GP.toString(), 'gwei');
 
         const transaction = await contractInstance.createProposal(driverAddress, fareAmountInWei, { value: fareAmountInWeiGP});
-        const receipt = await transaction.wait();
         console.log("Created!!")
     }
     catch (err) {
@@ -25,4 +24,4 @@ async function createProposal(driverAddress, fare) {
     }
 }
 
-export default createProposal;
+export default createProposal

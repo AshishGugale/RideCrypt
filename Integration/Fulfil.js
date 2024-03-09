@@ -11,7 +11,6 @@ const contractInstance = new Contract(process.env.contractAddress, [
 async function fulfillProposal(proposalId) {
     try {
         const transaction = await contractInstance.fulfillProposal(proposalId);
-        const receipt = await transaction.wait();
         console.log("Fulfilled!!!")
     }
     catch (err) {

@@ -13,6 +13,7 @@ Platform Charge v/s Fare (In Rs.):
 
 ![Geofencing](https://github.com/AshishGugale/RideCrypt/assets/96615701/46ec0ff7-8487-4af2-b2af-6709c7fcf842)
 
+
 ## Tech Stack:
 
 ### Contract:

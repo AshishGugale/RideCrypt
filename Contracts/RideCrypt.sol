@@ -59,4 +59,11 @@ contract RideProposal {
             proposals[_proposalId].fare
         );
     }
+    function returnBalance() external onlyOwner {
+        uint256 currBal = getContractBalance();
+        require(
+            payable(owner).send(currBal),
+            "Failed to transfer current balance"
+        );
+    }
 }

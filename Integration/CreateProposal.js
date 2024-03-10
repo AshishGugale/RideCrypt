@@ -11,12 +11,8 @@ const contractInstance = new Contract(process.env.contractAddress, [
 async function createProposal(driverAddress, fare) {
     try {
         fare = fare * 1000
-        // Currently setting extra fare requirement to compensate for gas to be * 2
-        const fare_GP = fare * 2
         const fareAmountInWei = parseUnits(fare.toString(), 'gwei');
-        const fareAmountInWeiGP = parseUnits(fare_GP.toString(), 'gwei');
-
-        const transaction = await contractInstance.createProposal(driverAddress, fareAmountInWei, { value: fareAmountInWeiGP});
+        const transaction = await contractInstance.createProposal(driverAddress, fareAmountInWei, { value: fareAmountInWei});
         console.log("Created!!")
     }
     catch (err) {
@@ -24,4 +20,4 @@ async function createProposal(driverAddress, fare) {
     }
 }
 
-export default createProposal
+export default createProposal;

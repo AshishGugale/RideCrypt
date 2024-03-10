@@ -17,5 +17,4 @@ async function fulfillProposal(proposalId) {
         console.log("Error fulfulling proposal: ", err.message)
     }
 }
-
 export default fulfillProposal;

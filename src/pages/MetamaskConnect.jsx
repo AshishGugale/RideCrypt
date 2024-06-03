@@ -4,7 +4,7 @@ export default function MetamaskConnect() {
   return (
     <div className="relative flex h-[100dvh] w-full flex-col items-center justify-center bg-gray-100 dark:bg-gray-950">
       <img
-        src="src\assets\metamask.png"
+        src="public\metamask.png"
         alt="Background"
         fill="true"
         height="100%"

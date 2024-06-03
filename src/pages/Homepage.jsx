@@ -15,7 +15,7 @@ export default function Homepage() {
         <section>
           <section className="w-full h-[80vh] relative overflow-hidden">
             <img
-              src="public\skyline.jpg"
+              src="/public/static/skyline.jpg"
               alt="City Skyline"
               fill="true"
               width="100%"

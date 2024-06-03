@@ -73,7 +73,7 @@ export default function Component() {
     try {
       const config = {
         method: "get",
-        url: `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=b89cc77a342a4a67b536e7c35886bdd7`,
+        url: `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${import.meta.env.VITE_GEO_KEY}`,
         headers: {},
       };
 

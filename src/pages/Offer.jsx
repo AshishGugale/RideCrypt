@@ -102,7 +102,6 @@ export default function Component() {
             Number(fetchedData[i][6]) / Math.pow(10, 6),
             Number(fetchedData[i][7]) / Math.pow(10, 6)
           );
-          console.log(fetchedData);
           if (!pickupLocation || !dropoffLocation) {
             continue;
           }

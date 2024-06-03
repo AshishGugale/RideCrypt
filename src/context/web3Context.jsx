@@ -52,7 +52,6 @@ export const Web3Provider = ({ children }) => {
 
   return (
     <Web3Context.Provider value={{ web3, contractInstance, address, isVerified, setIsVerified }}>
-      {console.log(web3, contractInstance, address, isVerified)}
       {address.length === 0 ? <MetamaskConnect /> : children}
     </Web3Context.Provider>
   );

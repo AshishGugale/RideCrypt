@@ -9,8 +9,6 @@ export const contractAddress = import.meta.env.VITE_CONTRACT;
 const RPC = import.meta.env.VITE_RPC;
 export const fromBlock = import.meta.env.VITE_BLOCK;
 
-console.log("ENV: ", contractAddress, RPC, fromBlock);
-
 /**
  * Function to connect with metamask
  * @returns contractInstance - to interact with methods, provider, address

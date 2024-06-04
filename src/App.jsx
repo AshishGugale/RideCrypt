@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { Outlet } from "react-router-dom";
 import { ThemeProvider, setTheme } from "./components/theme/shadcnDark";
-import { Web3Provider, Web3Context } from "./context/web3Context";
+import { Web3Provider } from "./context/web3Context";
 
 function App() {
   return (

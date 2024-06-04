@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Moon, Sun, CircleUser, Menu, Search, CarTaxiFrontIcon } from "lucide-react";
+import React, { useContext, useEffect } from "react";
+import { Moon, Sun, CircleUser, Menu, CarTaxiFrontIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
 import {
   DropdownMenu,
@@ -15,20 +15,30 @@ import { createUser } from "../integration/scripts.js";
 import Meteors from "./ui/meteor";
 
 const Navbar = ({ setTheme }) => {
-  const { address, isVerified, setIsVerified, contractInstance } = useContext(Web3Context);
+  const { web3, address, initializeWeb3, isVerified, setIsVerified, contractInstance } = useContext(Web3Context);
+
   const handleRegisterUser = async () => {
     try {
+      if (web3 === null) {
+        return;
+      }
       createUser(contractInstance).then(() => {
         setIsVerified(true);
-      })
-    }
-    catch (err) {
+      });
+    } catch (err) {
       console.error(err);
     }
-  }
+  };
+
+  useEffect(() => {
+    if (!web3) {
+      initializeWeb3();
+    }
+  }, [web3, initializeWeb3]);
+
   return (
     <header className="relative overflow-hidden top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-      <Meteors number={40}></Meteors>
+      <Meteors number={40} />
       <nav className="hidden flex-col gap-6 text-3xl font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <a href="/temp" className="text-sm font-medium hover:underline underline-offset-4">
           <CarTaxiFrontIcon className="h-6 w-6" />
@@ -88,15 +98,26 @@ const Navbar = ({ setTheme }) => {
         </SheetContent>
       </Sheet>
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        <div className="ml-auto flex-1 sm:flex-initial">
+        <div className="ml-auto flex gap-2 sm:flex-initial">
           <div>
             {isVerified ? (
               <Button variant="secondary" className="rounded-full">
                 {address}
               </Button>
             ) : (
-              <Button variant="secondary" className="rounded-full" onClick = {handleRegisterUser}>
+              <Button variant="secondary" className="rounded-full" onClick={handleRegisterUser}>
                 Register
+              </Button>
+            )}
+          </div>
+          <div>
+            {web3 !== null ? (
+              <Button variant="secondary" className="rounded-full">
+                Connected to Metamask
+              </Button>
+            ) : (
+              <Button variant="secondary" className="rounded-full" onClick={initializeWeb3}>
+                Connect to Metamask
               </Button>
             )}
           </div>
@@ -115,20 +136,6 @@ const Navbar = ({ setTheme }) => {
             <DropdownMenuItem>Support</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Logout</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon">
-              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function Component() {
   const [loading, setLoading] = useState(true);
-  const { contractInstance } = useContext(Web3Context);
+  const { contractInstance, web3 } = useContext(Web3Context);
   const [search, setSearch] = useState("");
   const [filters, setFilters] = useState({
     pickupLocation: "",
@@ -86,6 +86,7 @@ export default function Component() {
   };
 
   useEffect(() => {
+    if (web3 === null) return;
     const fetchFloats = async () => {
       try {
         const fetchedData = await getAllFloats(contractInstance);

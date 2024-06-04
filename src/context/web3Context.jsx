@@ -39,11 +39,6 @@ export const Web3Provider = ({ children }) => {
   };
 
   // useEffect to initialize web3 when component mounts
-  useEffect(() => {
-    if (!web3) {
-      initializeWeb3();
-    }
-  }, [web3]);
 
   useEffect(() => {
     if (!web3) return;
@@ -51,8 +46,8 @@ export const Web3Provider = ({ children }) => {
   }, [web3, address]);
 
   return (
-    <Web3Context.Provider value={{ web3, contractInstance, address, isVerified, setIsVerified }}>
-      {address.length === 0 ? <MetamaskConnect /> : children}
+    <Web3Context.Provider value={{ web3, contractInstance, address, isVerified, setIsVerified, initializeWeb3 }}>
+      {children}
     </Web3Context.Provider>
   );
 };

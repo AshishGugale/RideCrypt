@@ -1,23 +1,23 @@
 const RidecryptWorkflow = () => {
   return (
     <section>
-      <div className="flex flex-col">
-        <div className="flex flex-col dark:bg-gray-950 bg-gray-50 items-center dark:text-gray-50 justify-center pt-12  text-center">
+      <div className="flex flex-col  bg-gray-100">
+        <div className="flex flex-col dark:bg-gray-950 items-center dark:text-gray-50 justify-center pt-12  text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl dark:text-gray-50 text-gray-800">Workflow</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl dark:text-gray-50 text-gray-800">
+              Workflow
+            </h2>
             <p className="max-w-[900px] dark:text-gray-400 text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               The entire workflow can be divided into 3 planes: rider, driver and server
             </p>
           </div>
         </div>
         <div className="flex flex-row ">
-          <section
-            id="rider-workflow"
-            className="w-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50"
-          >
+          <section id="rider-workflow" className="w-full dark:bg-gray-950 text-gray-900 dark:text-gray-50">
             <div className="w-full max-w-4xl mx-auto p-6 sm:p-10 h-full">
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 sm:p-8 h-full">
-                <h2 className="text-2xl font-semibold mb-4">Rider Workflow</h2>
+              <div className="bg-gray-200 dark:bg-gray-800 rounded-lg p-6 sm:p-8 h-full">
+                <h2 className="text-2xl font-semibold mb-4 ">Rider Workflow</h2>
+                <div className="border-b-2 dark:border-white mb-2 -mt-1 border-gray-900"></div>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-center gap-4">
                     <div className="bg-primary-500 dark:text-white rounded-full w-8 h-8 flex items-center justify-center">
@@ -31,9 +31,7 @@ const RidecryptWorkflow = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="bg-primary-500 dark:text-white rounded-full w-8 h-8 flex items-center justify-center">
-                      2
-                    </div>
+                    <div className=" dark:text-white rounded-full w-8 h-8 flex items-center justify-center">2</div>
                     <div>
                       <h3 className="text-lg font-medium">Receive Passcode</h3>
                       <p className="text-gray-700 dark:text-gray-400">
@@ -42,9 +40,7 @@ const RidecryptWorkflow = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="bg-primary-500 dark:text-white rounded-full w-8 h-8 flex items-center justify-center">
-                      3
-                    </div>
+                    <div className=" dark:text-white rounded-full w-8 h-8 flex items-center justify-center">3</div>
                     <div>
                       <h3 className="text-lg font-medium">Ride allocation</h3>
                       <p className="text-gray-700 dark:text-gray-400">
@@ -54,9 +50,7 @@ const RidecryptWorkflow = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="bg-primary-500 dark:text-white rounded-full w-8 h-8 flex items-center justify-center">
-                      4
-                    </div>
+                    <div className=" dark:text-white rounded-full w-8 h-8 flex items-center justify-center">4</div>
                     <div>
                       <h3 className="text-lg font-medium">Ride Completion</h3>
                       <p className="text-gray-700 dark:text-gray-400">
@@ -69,13 +63,12 @@ const RidecryptWorkflow = () => {
             </div>
           </section>
 
-          <section
-            id="driver-workflow"
-            className="w-full  bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50"
-          >
-            <div className="w-full max-w-4xl mx-auto p-6 sm:p-10 h-full">
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 sm:p-8 h-full">
+          <section id="driver-workflow" className="w-full  dark:bg-gray-950 text-gray-900 dark:text-gray-50">
+            <div className="w-full max-w-4xl mx-auto p-6 sm:p-10 h-full ">
+              <div className="bg-gray-200 dark:bg-gray-800 rounded-lg p-6 sm:p-8 h-full ">
                 <h2 className="text-2xl font-semibold mb-4">Driver Workflow</h2>
+                <div className="border-b-2 dark:border-white mb-2 -mt-1 border-gray-900"></div>
+
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-center gap-4">
                     <div className="bg-primary-500 dark:text-white rounded-full w-8 h-8 flex items-center justify-center">
@@ -124,13 +117,11 @@ const RidecryptWorkflow = () => {
             </div>
           </section>
 
-          <section
-            id="server-workflow"
-            className="w-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50"
-          >
+          <section id="server-workflow" className="w-full dark:bg-gray-950 text-gray-900 dark:text-gray-50">
             <div className="w-full max-w-4xl mx-auto p-6 sm:p-10 h-full">
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 sm:p-8 h-full">
+              <div className="bg-gray-200 dark:bg-gray-800 rounded-lg p-6 sm:p-8 h-full">
                 <h2 className="text-2xl font-semibold mb-4">Server Workflow</h2>
+                <div className="border-b-2 dark:border-white mb-2 -mt-1 border-gray-900"></div>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-center gap-4">
                     <div className="bg-primary-500 dark:text-white rounded-full w-8 h-8 flex items-center justify-center">

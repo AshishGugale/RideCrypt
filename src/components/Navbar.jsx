@@ -62,6 +62,9 @@ const Navbar = ({ setTheme }) => {
         >
           Offer
         </a>
+        <a href="/trips" className="text-muted-foreground transition-colors hover:text-foreground text-sm font-medium hover:underline underline-offset-4">
+          Trips
+        </a>
         <a
           href="/working"
           className="text-muted-foreground transition-colors hover:text-foreground text-sm font-medium hover:underline underline-offset-4"
@@ -90,6 +93,9 @@ const Navbar = ({ setTheme }) => {
             </a>
             <a href="/offer" className="text-muted-foreground hover:text-foreground">
               Offer
+            </a>
+            <a href="/trips" className="text-muted-foreground hover:text-foreground">
+              Trips
             </a>
             <a href="/working" className="text-muted-foreground hover:text-foreground">
               Working
@@ -136,6 +142,20 @@ const Navbar = ({ setTheme }) => {
             <DropdownMenuItem>Support</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Logout</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="icon">
+              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

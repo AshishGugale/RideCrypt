@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useContext, useCallback } from "react";
 import { Input } from "../components/ui/input";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "../components/ui/table";
 import { Button } from "../components/ui/button";
-import { getAllFloats } from "../integration/scripts";
+import { createNewProposal, getAllFloats } from "../integration/scripts";
 import { Web3Context } from "../context/web3Context";
 import { SearchIcon } from "lucide-react";
 import axios from "axios";
@@ -41,6 +41,15 @@ export default function Component() {
 
     return R * c;
   }, []);
+
+  const handleCreateProposal = async (floatId) => {
+    try {
+      if (contractInstance === null) return;
+      const tx = await createNewProposal(contractInstance, floatId);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const filteredFares = useMemo(() => {
     return fares.filter(
@@ -131,9 +140,11 @@ export default function Component() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Cab Fare Listings</h1>
-        <p className="text-gray-500">Find and accept cab fares that fit your needs.</p>
+      <div className="flex">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold mb-2">Cab Fare Listings</h1>
+          <p className="text-gray-500">Find and accept cab fares that fit your needs.</p>
+        </div>
       </div>
       <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <div>
@@ -247,7 +258,9 @@ export default function Component() {
                   <TableCell>{fare.distance.toFixed(2)} miles</TableCell>
                   <TableCell>${fare.baseFare.toFixed(6)}</TableCell>
                   <TableCell>
-                    <Button size="sm">Accept</Button>
+                    <Button size="sm" onClick={() => handleCreateProposal(fare.id)}>
+                      Accept
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

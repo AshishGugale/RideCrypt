@@ -8,6 +8,7 @@ import Offer from "./pages/Offer.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./pages/Error.jsx";
+import Trips from "./pages/Trips.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/book", element: <Book /> },
       { path: "/working", element: <Working /> },
       { path: "/offer", element: <Offer /> },
+      { path: "/trips", element: <Trips /> },
 
       // { path: "/createbid/:id", element: <CreateBid /> },
     ],

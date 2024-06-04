@@ -1,14 +1,14 @@
 export default function ErrorBoundary() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[100dvh] gap-6 px-4 md:px-6 bg-slate-700">
-      <div className="max-w-md text-center space-y-2">
+      <div className="text-center space-y-2">
         <div style={{ textAlign: "center", padding: "20px", color: "white" }}>
-          <h1>Oops! Something went wrong.</h1>
-          <p>But hey, even superheroes have bad days!</p>
+          <h1 className="text-6xl">Oops! Something went wrong.</h1>
+          <p className="text-3xl pt-4">Don't tell my boss {":)" }</p>
           <img
-            src="https://media.giphy.com/media/l2JdTnZ2Qgt5lPfS4/giphy.gif"
+            src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGZvZ216cnZmcHRyeWJiemdzZm03M29ocXphM25kNHBsd3hzeXZ3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CWN0uW6ELn3pK/giphy.gif"
             alt="Error Gif"
-            style={{ maxWidth: "100%", maxHeight: "300px", margin: "20px 0" }}
+            className="h-full w-full p-4"
           />
         </div>
         <a
@@ -20,5 +20,5 @@ export default function ErrorBoundary() {
         </a>
       </div>
     </div>
-  )
+  );
 }

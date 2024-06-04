@@ -115,6 +115,7 @@ export async function getProposalDetails(contractInstance, _proposalId) {
 export async function createNewProposal(contractInstance, _floatId) {
   try {
     const result = await contractInstance.createNewProposal(_floatId);
+    console.log(result);
     await result.wait();
     return result;
   } catch (err) {

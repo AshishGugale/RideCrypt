@@ -1,5 +1,3 @@
-import { GithubIcon } from "lucide-react";
-import { ResponsiveLine } from "@nivo/line";
 import WorkingWorkflow from "../components/working/workingWorkflow";
 import WorkingKeyFeatures from "../components/working/workingKeyFeatures";
 import WorkingTop from "../components/working/workingTop";

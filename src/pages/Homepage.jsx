@@ -32,8 +32,12 @@ export default function Homepage() {
                   fingertips.
                 </p>
                 <div className="flex gap-4">
-                  <Button>Sign Up</Button>
-                  <Button>Get a Ride</Button>
+                  <Button>
+                    <a href="/book">Book</a>
+                  </Button>
+                  <Button>
+                    <a href="/working">Working</a>
+                  </Button>
                 </div>
               </div>
             </div>

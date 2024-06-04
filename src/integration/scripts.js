@@ -24,7 +24,7 @@ export const getWeb3 = async () => {
       const address = await signer.getAddress();
       return { contractInstance, provider, address };
     } else {
-      alert("No metamask found!!");
+      console.log("No metamask found!!!");
     }
   } catch (err) {
     return { message: err };

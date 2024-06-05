@@ -99,21 +99,26 @@ export default function Component() {
     const fetchFloats = async () => {
       try {
         const fetchedData = await getAllFloats(contractInstance);
+
         let tempData = [];
         for (let i = 0; i < fetchedData.length; i++) {
           if (fetchedData[i][3] === true) {
             continue;
           }
-          const pickupLocation = await getReverseGeocoding(
+          let pickupLocation = await getReverseGeocoding(
             Number(fetchedData[i][4]) / Math.pow(10, 6),
             Number(fetchedData[i][5]) / Math.pow(10, 6)
           );
-          const dropoffLocation = await getReverseGeocoding(
+          let dropoffLocation = await getReverseGeocoding(
             Number(fetchedData[i][6]) / Math.pow(10, 6),
             Number(fetchedData[i][7]) / Math.pow(10, 6)
           );
-          if (!pickupLocation || !dropoffLocation) {
-            continue;
+
+          if (pickupLocation === undefined) {
+            pickupLocation = "Cannot be recognized by the API!";
+          }
+          if (dropoffLocation === undefined) {
+            dropoffLocation = "Cannot be recognized by the API!";
           }
           tempData.push({
             id: Number(fetchedData[i][0]),
@@ -255,7 +260,7 @@ export default function Component() {
                 <TableRow key={fare.id}>
                   <TableCell>{fare.pickupLocation}</TableCell>
                   <TableCell>{fare.dropoffLocation}</TableCell>
-                  <TableCell>{fare.distance.toFixed(2)} miles</TableCell>
+                  <TableCell>{fare.distance.toFixed(4)} miles</TableCell>
                   <TableCell>${fare.baseFare.toFixed(6)}</TableCell>
                   <TableCell>
                     <Button size="sm" onClick={() => handleCreateProposal(fare.id)}>
